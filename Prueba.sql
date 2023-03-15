@@ -143,6 +143,20 @@ VALUES (3, 2023, 6, 1, 3200);
 INSERT INTO boleta (cliente_id, fecha, producto_id, cantidad, precio_unidad)
 VALUES (2, 2023, 6, 1, 3200);
 
+#olvide agregarle el total a la tabla boleta
+UPDATE boleta
+SET total = 1000
+WHERE boleta_id=1;
+
+UPDATE boleta
+SET total = 3200
+WHERE boleta_id=2;
+
+UPDATE boleta
+SET total = 3200
+WHERE boleta_id=3;
+
+
 
 
 #1ra consulta de datos de tabla que me muestre los productos de categoria Higiene
@@ -166,10 +180,9 @@ JOIN boleta ON cliente.cliente_id = boleta.cliente_id
 JOIN producto ON boleta.producto_id = producto.producto_id
 WHERE producto.nombre_producto = "Desodorante";
 
+#me suma las ventas del año 2023 que son 2, pero no me muestra el año :c no lo logre
 
-
-
-
-
-
-
+SELECT YEAR(fecha) AS anio, SUM(total) AS ganancia_anual
+FROM boleta
+WHERE fecha = 2023
+GROUP BY YEAR(fecha);
