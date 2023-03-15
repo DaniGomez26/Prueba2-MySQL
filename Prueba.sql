@@ -42,9 +42,6 @@ precio_unidad DOUBLE,
 total DOUBLE
 );
 
-
-
-
 #AGREGAR FK A CADA TABLA
 
 ALTER TABLE boleta
@@ -57,9 +54,71 @@ ADD FOREIGN KEY (tipoProducto_id) REFERENCES tipoProducto(tipoProducto_id);
 ALTER TABLE producto
 ADD FOREIGN KEY (tipoProducto_id) REFERENCES tipoProducto(tipoProducto_id);
 
-#agregar datos a las tablas, producto, tipoProducto , proveedor
+#agregar datos a la tabla tipoProducto
 
+INSERT INTO tipoProducto(nombre_tipoProducto)
+VALUES ("Abarrotes");
 
+INSERT INTO tipoProducto(nombre_tipoProducto)
+VALUES ("Aseo");
+
+INSERT INTO tipoProducto(nombre_tipoProducto)
+VALUES ("Higiene");
+
+INSERT INTO tipoProducto(nombre_tipoProducto)
+VALUES ("Verduras");
+
+INSERT INTO tipoProducto(nombre_tipoProducto)
+VALUES ("Bebestibles");
+
+#agregar datos a la tabla producto
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Fideos", 900, 1);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Arroz", 1100, 1);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Cera", 1500, 2);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Paño", 500, 2);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Cepillo de Dientes", 1200, 3);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Desodorante", 3200, 3);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Lechuga", 900, 4);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Tomate", 1100, 4);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Jugo", 2500, 5);
+
+INSERT INTO producto (nombre_producto, precio, tipoProducto_id)
+VALUES ("Bebida", 1800, 5);
+
+#agregar datos a proveedor
+
+INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
+VALUES ("Doña Juanita", "juanita@gmail.com", 1);
+
+INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
+VALUES ("Donde Javiera", "javiera@gmail.com", 2);
+
+INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
+VALUES ("Don Juan", "juanito@gmail.com", 3);
+
+INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
+VALUES ("Verdulería Ale", "alejita@gmail.com", 4);
+
+INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
+VALUES ("Fruticola", "fruticola@gmail.com", 5);
 
 
 
