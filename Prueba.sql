@@ -120,6 +120,51 @@ VALUES ("Verdulería Ale", "alejita@gmail.com", 4);
 INSERT INTO proveedor (nombre_proveedor, correo, tipoProducto_id)
 VALUES ("Fruticola", "fruticola@gmail.com", 5);
 
+#agregar datos cliente
+INSERT INTO cliente (nombre_cliente, correo)
+VALUES ("Susana Henriquez", "su@gmail.com");
+
+INSERT INTO cliente (nombre_cliente, correo)
+VALUES ("Yatamis Spolman", "yatamis@gmail.com");
+
+INSERT INTO cliente (nombre_cliente, correo)
+VALUES ("Daniela Corral", "dani@gmail.com");
+
+INSERT INTO cliente (nombre_cliente, correo)
+VALUES ("Nicolás Aravena", "nico@gmail.com");
+
+#agregar datos tabla boleta
+INSERT INTO boleta (cliente_id, fecha, producto_id, cantidad, precio_unidad)
+VALUES (1, 2020, 4, 2, 500);
+
+INSERT INTO boleta (cliente_id, fecha, producto_id, cantidad, precio_unidad)
+VALUES (3, 2023, 6, 1, 3200);
+
+INSERT INTO boleta (cliente_id, fecha, producto_id, cantidad, precio_unidad)
+VALUES (2, 2023, 6, 1, 3200);
+
+
+
+#1ra consulta de datos de tabla que me muestre los productos de categoria Higiene
+
+SELECT nombre_producto 
+FROM producto
+WHERE tipoProducto_id = 3;
+
+#2da consulta de datos de tabla Que me muestre los productos y el precio de la categoria bebestibles
+
+SELECT nombre_producto, precio 
+FROM producto
+WHERE tipoProducto_id = 5;
+
+
+#Consulta con JOIN donde le pido que me muestre todas las clientas que compraron un desodorante
+#tengo qeu unir cliente, producto y boleta para obtener la informacion
+SELECT nombre_cliente, correo, nombre_producto
+FROM cliente
+JOIN boleta ON cliente.cliente_id = boleta.cliente_id
+JOIN producto ON boleta.producto_id = producto.producto_id
+WHERE producto.nombre_producto = "Desodorante";
 
 
 
